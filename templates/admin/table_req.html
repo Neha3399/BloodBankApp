@@ -1,0 +1,34 @@
+{% extends 'admin/admin_base.html' %}
+
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">ReveiverName</th>
+      <th scope="col">Date</th>
+      <th scope="col">BloodGroup</th>
+      <th scope="col">Hospitalname</th>
+      <th scope="col">Place</th>
+      <th scope="col">contact</th>
+
+    </tr>
+  </thead>
+  <tbody>
+   {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.ReceiverName.name}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.Blood}}</td>
+      <td>{{i.HospitalName}}</td>
+      <td>{{i.Place}}</td>
+      <td>{{i.Contact}}</td>
+
+
+    </tr>
+    {% endfor %}
+   </tbody>
+</table>
+     {% endblock %}

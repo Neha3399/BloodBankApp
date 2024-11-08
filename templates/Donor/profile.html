@@ -1,0 +1,31 @@
+{% extends 'Donor/Donor_base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<div class="card" style="width: 18rem;">
+  <img src="{{form.document.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{form.name}}</h5>
+
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{form.age}}</li>
+    <li class="list-group-item">{{form.DOB}}</li>
+    <li class="list-group-item">{{form.Blood}}</li>
+    <li class="list-group-item">{{form.Address}}</li>
+    <li class="list-group-item">{{form.Phone}}</li>
+    <li class="list-group-item">{{form.Email}}</li>
+<li><a href="{% url 'donor_update' form.id %}" class="btn btn-primary " tabindex="-1"  aria-disabled="true">Edit</a></li>
+  </ul>
+
+</div>
+
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,41 @@
+{% extends 'Receiver/Receiver_base.html' %}
+
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col">ReveiverName</th>
+      <th scope="col">Date</th>
+      <th scope="col">BloodGroup</th>
+      <th scope="col">Hospitalname</th>
+      <th scope="col">Place</th>
+      <th scope="col">contact</th>
+
+    </tr>
+  </thead>
+  <tbody>
+   {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.ReceiverName.name}}</td>
+      <td>{{i.date}}</td>
+      <td>{{i.Blood}}</td>
+      <td>{{i.HospitalName}}</td>
+      <td>{{i.Place}}</td>
+      <td>{{i.Contact}}</td>
+
+      <td><a href="{% url 'rmv_req' i.id %}" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">delete</a></td>
+  {% if i.Status == 0 %}
+        <td>Request Rejected</td>
+        {% elif i.Status == 1 %}
+        <td><h6> Donation Processing</h6></td>
+        {% elif i.Status == 2 %}
+        <td><h6>Donation Conformed</h6></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+   </tbody>
+</table>
+     {% endblock %}

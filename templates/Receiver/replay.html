@@ -1,0 +1,38 @@
+{% extends 'Receiver/Receiver_base.html' %}
+
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl no</th>
+      <th scope="col"> name</th>
+      <th scope="col">massage</th>
+      <th scope="col">date</th>
+      <th scope="col"> replay</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+   {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name.name}}</td>
+      <td>{{i.massage}}</td>
+      <td>{{i.date}}</td>
+
+
+
+
+   {% if i.replay == None %}
+        <td><h6>No Replay</h6></td>
+        {% else %}
+        <td >{{i.replay}}</td>
+
+        {% endif %}
+    </tr>
+    {% endfor %}
+   </tbody>
+</table>
+     {% endblock %}
